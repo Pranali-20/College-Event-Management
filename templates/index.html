@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Event Management</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #eef2f7;
+            margin: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #173b70;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            max-width: 750px;
+            margin: auto;
+        }
+
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: #173b70;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .event {
+            background: #e4edfa;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>College Event Management System</h1>
+
+    <h2>Add New Event</h2>
+
+    <form method="POST">
+
+        <input type="text"
+               name="name"
+               placeholder="Enter Event Name"
+               required>
+
+        <input type="date"
+               name="date"
+               required>
+
+        <input type="text"
+               name="venue"
+               placeholder="Enter Venue"
+               required>
+
+        <textarea name="description"
+                  placeholder="Event Description"
+                  required></textarea>
+
+        <button type="submit">Add Event</button>
+
+    </form>
+
+    <h2>Upcoming Events</h2>
+
+    {% for event in events %}
+
+    <div class="event">
+
+        <h3>{{ event.name }}</h3>
+
+        <p>Date: {{ event.date }}</p>
+
+        <p>Venue: {{ event.venue }}</p>
+
+        <p>{{ event.description }}</p>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+</body>
+</html>
